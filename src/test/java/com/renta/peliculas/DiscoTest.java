@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.renta.peliculas.Disco;
+import com.renta.peliculas.Pelicula;
+
 public class DiscoTest {
 
 	

@@ -4,6 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.renta.peliculas.Alquiler;
+import com.renta.peliculas.Disco;
+import com.renta.peliculas.Pelicula;
+
 public class AlquilerTest {
 
 	@Test

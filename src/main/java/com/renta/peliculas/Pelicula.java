@@ -21,11 +21,4 @@ public class Pelicula extends Catalogo{
 			return (Pelicula) Registrar.get("Peliculas", name);
 		}
 
-		public String getNombre() {
-			return nombre;
-		}
-
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
 }

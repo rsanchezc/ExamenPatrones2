@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
+import com.renta.peliculas.Pelicula;
+
 public class PeliculaTest {
 
 	@Test

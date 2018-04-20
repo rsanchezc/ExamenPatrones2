@@ -24,6 +24,7 @@ public class Cliente extends Catalogo{
         int puntosAlquilerFrecuente = 0;
         Iterator<Alquiler> iterator= alquileres.iterator();
         String result = "Alquileres de " + nombre + ":\n";
+        
         while (iterator.hasNext()) {
             double montoAlquiler = 0;
             Alquiler alquiler = iterator.next();
@@ -31,21 +32,20 @@ public class Cliente extends Catalogo{
             //determine amounts for each line
             Categoria tipoPelicula = Categoria.values()[alquiler.getDisco().getPelicula().getCodigoPrecio()];
             int diasAlquiler = alquiler.getDiasAlquilado();
+            
             switch (tipoPelicula) {
                 case NORMAL:
                 	montoAlquiler +=  new MontoNormal().obtenerMonto(diasAlquiler);
                     break;
                 case ESTRENO:
-                    montoAlquiler += alquiler.getDiasAlquilado() * 3;
+                	montoAlquiler +=  new MontoEstreno().obtenerMonto(diasAlquiler);
                     break;
                 case INFANTIL:
-                    montoAlquiler += 1.5;
-                    if (alquiler.getDiasAlquilado() > 3)
-                        montoAlquiler += (alquiler.getDiasAlquilado() - 3) * 1.5;
+                	montoAlquiler +=  new MontoInfantil().obtenerMonto(diasAlquiler);
                     break;
-                 default:
-                	 System.out.println("Categoria no existente");
-                	 break;
+                default:
+                	System.out.println("Categoria no existente");
+                	break;
             }
             montoTotal += montoAlquiler;
 
@@ -76,5 +76,4 @@ public class Cliente extends Catalogo{
     	Registrar.add("Clientes", this);
     }
 
-    
 }
