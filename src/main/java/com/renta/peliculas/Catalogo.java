@@ -1,6 +1,6 @@
 package com.renta.peliculas;
 
-public class Catalogo {
+public class Catalogo{
 	protected String nombre;
 	
 	public Catalogo(String pNombre){
@@ -11,7 +11,7 @@ public class Catalogo {
 		return nombre;
 	}
 	
-	public void setNombre(String pNombre) {
-		this.nombre = pNombre;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 }

@@ -2,7 +2,9 @@ package com.renta.peliculas;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 import com.renta.peliculas.Categoria;
+import com.renta.peliculas.monto.*;
 
 public class Cliente extends Catalogo{
 	
@@ -27,12 +29,11 @@ public class Cliente extends Catalogo{
             Alquiler alquiler = iterator.next();
 
             //determine amounts for each line
-            Categoria tipoPelicula = Categoria.values()[alquiler.getDisco().getPelicula().getCodigoPrecio()];           
+            Categoria tipoPelicula = Categoria.values()[alquiler.getDisco().getPelicula().getCodigoPrecio()];
+            int diasAlquiler = alquiler.getDiasAlquilado();
             switch (tipoPelicula) {
-                case NORMAL:                	
-                    montoAlquiler += 2;
-                    if (alquiler.getDiasAlquilado() > 2)
-                        montoAlquiler += (alquiler.getDiasAlquilado() - 2) * 1.5;
+                case NORMAL:
+                	montoAlquiler +=  new MontoNormal().obtenerMonto(diasAlquiler);
                     break;
                 case ESTRENO:
                     montoAlquiler += alquiler.getDiasAlquilado() * 3;
@@ -74,5 +75,6 @@ public class Cliente extends Catalogo{
     public void persist() {
     	Registrar.add("Clientes", this);
     }
+
     
 }

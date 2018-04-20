@@ -4,9 +4,13 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.junit.Test;
+
+import com.renta.peliculas.Alquiler;
+import com.renta.peliculas.Cliente;
+import com.renta.peliculas.Disco;
+import com.renta.peliculas.Pelicula;
 
 public class ClienteTest {
 
