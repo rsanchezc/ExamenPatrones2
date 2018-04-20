@@ -1,12 +1,11 @@
 package com.renta.peliculas;
 
 public class Pelicula extends Catalogo{
-
-	    private String nombre; 
+	    
 		private int codigoPrecio;		
 
 		public Pelicula(String pNombre, int pCodigoPrecio) {
-			setNombre(pNombre);
+			super(pNombre);
 			codigoPrecio = pCodigoPrecio;
 		}
 

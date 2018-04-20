@@ -5,15 +5,15 @@ import java.util.Iterator;
 import com.renta.peliculas.Categoria;
 
 public class Cliente extends Catalogo{
-	private String nombre;
+	
 	private ArrayList<Alquiler> alquileres;
 	
 	public Cliente(String pNombre) {
-        nombre = pNombre;
+        super(pNombre);
     }
 	
 	public Cliente(String pNombre, ArrayList<Alquiler> pAlquileres){
-		nombre = pNombre;
+		super(pNombre);
 		alquileres = pAlquileres;
 	}
 	
@@ -70,10 +70,6 @@ public class Cliente extends Catalogo{
     public static Cliente get(String name) {
     	return (Cliente) Registrar.get("Clientes", name);
     }
-    
-	public String getNombre() {
-		return nombre;
-	}
 	
     public void persist() {
     	Registrar.add("Clientes", this);
