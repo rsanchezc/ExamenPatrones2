@@ -1,6 +1,6 @@
 package com.renta.peliculas;
 
-public class Pelicula {
+public class Pelicula extends Catalogo{
 
 	    private String nombre; 
 		private int codigoPrecio;		
@@ -19,7 +19,7 @@ public class Pelicula {
 		}
 
 		public static Pelicula get(String name) {
-			return (Pelicula) Registrar.get ("Peliculas", name);
+			return (Pelicula) Registrar.get("Peliculas", name);
 		}
 
 		public String getNombre() {

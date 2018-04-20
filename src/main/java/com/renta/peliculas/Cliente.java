@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import com.renta.peliculas.Categoria;
 
-public class Cliente {
+public class Cliente extends Catalogo{
 	private String nombre;
 	private ArrayList<Alquiler> alquileres;
 	
