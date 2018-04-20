@@ -1,9 +1,8 @@
 package com.renta.peliculas;
 
 public class Disco {
-    public Pelicula getPelicula() {
-    	return pelicula;
-    }
+	private String numeroSerie; 
+    private Pelicula pelicula;
     
     public Disco(String pNumeroSerie, Pelicula pPelicula) {
     	setNumeroSerie(pNumeroSerie);
@@ -13,11 +12,12 @@ public class Disco {
     public String getNumeroSerie() {
 		return numeroSerie;
 	}
+    
+    public Pelicula getPelicula() {
+    	return pelicula;
+    }
 
 	public void setNumeroSerie(String numeroSerie) {
 		this.numeroSerie = numeroSerie;
 	}
-
-	private String numeroSerie; 
-    private Pelicula pelicula;
 }

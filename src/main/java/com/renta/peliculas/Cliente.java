@@ -9,29 +9,32 @@ import com.renta.peliculas.monto.*;
 public class Cliente extends Catalogo{
 	
 	private ArrayList<Alquiler> alquileres;
+	int puntosAlquilerFrecuente;    
 	
 	public Cliente(String pNombre) {
         super(pNombre);
+        puntosAlquilerFrecuente = 0;
     }
 	
 	public Cliente(String pNombre, ArrayList<Alquiler> pAlquileres){
 		super(pNombre);
 		alquileres = pAlquileres;
+		puntosAlquilerFrecuente = 0;
 	}
 	
     public String statement() {
         double montoTotal = 0;
-        int puntosAlquilerFrecuente = 0;
+        
         Iterator<Alquiler> iterator= alquileres.iterator();
         String result = "Alquileres de " + nombre + ":\n";
         
         while (iterator.hasNext()) {
             double montoAlquiler = 0;
-            Alquiler alquiler = iterator.next();
+            int diasAlquiler;
 
-            //determine amounts for each line
+            Alquiler alquiler = iterator.next();            
             Categoria tipoPelicula = Categoria.values()[alquiler.getDisco().getPelicula().getCodigoPrecio()];
-            int diasAlquiler = alquiler.getDiasAlquilado();
+            diasAlquiler = alquiler.getDiasAlquilado();
             
             switch (tipoPelicula) {
                 case NORMAL:
@@ -50,15 +53,14 @@ public class Cliente extends Catalogo{
             montoTotal += montoAlquiler;
 
             puntosAlquilerFrecuente ++;
+                     
+            if ((alquiler.getDisco().getPelicula().getCodigoPrecio() == 1) && alquiler.getDiasAlquilado() > 1) {
+            	puntosAlquilerFrecuente++;
+            }
             
-            // agregar bono por alquiler de pelicula "estreno"
-            if ((alquiler.getDisco().getPelicula().getCodigoPrecio() == 1) && alquiler.getDiasAlquilado() > 1) puntosAlquilerFrecuente ++;
-
-            //mostrar datos
             result += "\t" + alquiler.getDisco().getPelicula().getNombre()+ "\t" + String.valueOf(montoAlquiler) + "\n";
 
         }
-        //fin del reporte
         result +=  "Monto total:  " + String.valueOf(montoTotal) + "\n";
         result += "Gano " + String.valueOf(puntosAlquilerFrecuente) + " puntos por alquiler frecuente";
         return result;

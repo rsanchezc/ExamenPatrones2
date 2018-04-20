@@ -37,11 +37,12 @@ public class ClienteTest {
 	@Test
 	public void testStatementConAlquilerTipoNormal() {
 				
-		ArrayList alquileres = new ArrayList();									
+		ArrayList<Alquiler> alquileres = new ArrayList<Alquiler>();
+		int tipoPelicula = 0;
 		
-		Pelicula pelicula = new Pelicula("NPelicula",0);
+		Pelicula pelicula = new Pelicula("NPelicula", tipoPelicula);
 		Disco disco = new Disco("S101",pelicula);	
-		Alquiler alquilerTest = new Alquiler(disco,2);
+		Alquiler alquilerTest = new Alquiler(disco,4);
 		
 		alquileres.add(alquilerTest);
 						
@@ -51,8 +52,8 @@ public class ClienteTest {
 		String mensaje;
 		
 		mensaje ="Alquileres de " + "SuNombre" + ":\n";
-		mensaje += "\t" +"NPelicula" + "\t" + "2.0" + "\n";
-		mensaje +=  "Monto total:  " + "2.0" + "\n";
+		mensaje += "\t" +"NPelicula" + "\t" + "5.0" + "\n";
+		mensaje +=  "Monto total:  " + "5.0" + "\n";
         mensaje += "Gano " + "1" + " puntos por alquiler frecuente";
         
         assertEquals(mensaje, clienteTest.statement());		
@@ -62,11 +63,12 @@ public class ClienteTest {
 	@Test
 	public void testStatementConAlquilerTipoEstreno() {
 				
-		ArrayList alquileres = new ArrayList();									
+		ArrayList<Alquiler> alquileres = new ArrayList<Alquiler>();									
+		int tipoPelicula = 1;
 		
-		Pelicula pelicula = new Pelicula("NPelicula",1);
+		Pelicula pelicula = new Pelicula("NPelicula",tipoPelicula);
 		Disco disco = new Disco("S101",pelicula);	
-		Alquiler alquilerTest = new Alquiler(disco,2);
+		Alquiler alquilerTest = new Alquiler(disco,4);
 		
 		alquileres.add(alquilerTest);
 						
@@ -76,8 +78,8 @@ public class ClienteTest {
 		String mensaje;
 		
 		mensaje ="Alquileres de " + "SuNombre" + ":\n";
-		mensaje += "\t" +"NPelicula" + "\t" + "6.0" + "\n";
-		mensaje +=  "Monto total:  " + "6.0" + "\n";
+		mensaje += "\t" +"NPelicula" + "\t" + "12.0" + "\n";
+		mensaje +=  "Monto total:  " + "12.0" + "\n";
         mensaje += "Gano " + "2" + " puntos por alquiler frecuente";
         
         assertEquals(mensaje, clienteTest.statement());		
@@ -86,22 +88,21 @@ public class ClienteTest {
 	@Test
 	public void testStatementConAlquilerTipoInfantil() {
 				
-		ArrayList alquileres = new ArrayList();									
+		ArrayList<Alquiler> alquileres = new ArrayList<Alquiler>();		
+		int tipoPelicula = 2;
 		
-		Pelicula pelicula = new Pelicula("NPelicula",2);
+		Pelicula pelicula = new Pelicula("NPelicula",tipoPelicula);
 		Disco disco = new Disco("S101",pelicula);	
-		Alquiler alquilerTest = new Alquiler(disco,2);
+		Alquiler alquilerTest = new Alquiler(disco,4);
 		
-		alquileres.add(alquilerTest);
-						
-					
+		alquileres.add(alquilerTest);							
 		Cliente clienteTest = new Cliente("SuNombre",alquileres);
 		
 		String mensaje;
 		
 		mensaje ="Alquileres de " + "SuNombre" + ":\n";
-		mensaje += "\t" +"NPelicula" + "\t" + "1.5" + "\n";
-		mensaje +=  "Monto total:  " + "1.5" + "\n";
+		mensaje += "\t" +"NPelicula" + "\t" + "3.0" + "\n";
+		mensaje +=  "Monto total:  " + "3.0" + "\n";
         mensaje += "Gano " + "1" + " puntos por alquiler frecuente";
         
         assertEquals(mensaje, clienteTest.statement());		

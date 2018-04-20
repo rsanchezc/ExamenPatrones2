@@ -2,23 +2,22 @@ package com.renta.peliculas;
 
 public class Pelicula extends Catalogo{
 	    
-		private int codigoPrecio;		
+	private int codigoPrecio;		
 
-		public Pelicula(String pNombre, int pCodigoPrecio) {
-			super(pNombre);
-			codigoPrecio = pCodigoPrecio;
-		}
+	public Pelicula(String pNombre, int pCodigoPrecio) {
+		super(pNombre);
+		codigoPrecio = pCodigoPrecio;
+	}
 
-		public int getCodigoPrecio() {
-			return codigoPrecio;
-		}
+	public int getCodigoPrecio() {
+		return codigoPrecio;
+	}
 
-		public void persist() {
-			Registrar.add ("Movies", this);
-		}
+	public void persist() {
+		Registrar.add ("Movies", this);
+	}
 
-		public static Pelicula get(String name) {
-			return (Pelicula) Registrar.get("Peliculas", name);
-		}
-
+	public static Pelicula get(String name) {
+		return (Pelicula) Registrar.get("Peliculas", name);
+	}
 }
