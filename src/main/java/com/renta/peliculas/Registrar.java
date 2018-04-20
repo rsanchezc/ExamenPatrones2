@@ -3,24 +3,26 @@ package com.renta.peliculas;
 import java.util.HashMap;
 
 public class Registrar {
-	private static HashMap Peliculas = new HashMap();
-	private static HashMap Clientes = new HashMap();
+	private static HashMap<String, Pelicula> Peliculas = new HashMap<String, Pelicula>();
+	private static HashMap<String, Cliente> Clientes = new HashMap<String, Cliente>();
 	
-	public static Object get(String coleccion, String nombre) {
+	public static Catalogo get(String coleccion, String nombre) {
 		if ("Peliculas".equals(coleccion)){
 			return Peliculas.get(nombre);
+		}else {
+			return Clientes.get(nombre);
 		}
-		return Clientes.get(nombre);
-		
 	}
 
-	public static void add(String coleccion, Object objeto) {
+	public static void add(String coleccion, Catalogo pCatalogo) {
 		if ("Peliculas".equals(coleccion)){
-			Pelicula nuevaPelicula = (Pelicula) objeto;
-			Peliculas.put(nuevaPelicula.getNombre(), nuevaPelicula);
+			Pelicula nuevaPelicula = (Pelicula) pCatalogo;
+			Peliculas.put(nuevaPelicula.getNombre(), nuevaPelicula);		
 		}
-		Cliente nuevoCliente = (Cliente) objeto;
-		Clientes.put(nuevoCliente.getNombre(), nuevoCliente);
+		if ("Clientes".equals(coleccion)){
+			Cliente nuevoCliente = (Cliente) pCatalogo;
+			Clientes.put(nuevoCliente.getNombre(), nuevoCliente);
+		}
 	}
 
 }
